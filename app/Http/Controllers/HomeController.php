@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\reservation;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,42 +35,38 @@ public function home(){
     return view('home.userpage',compact('event'));
 }
 
-public function addreservation(Request $request, $id){
-
-    $request->validate([
-        'startDate' => 'required|date',
-        'endDate'=> 'date|after:startDate',
-    ]);
-
-    $data = new event;
-    $data->event_id = $id;
-    $data ->name = $request->name;
-    $data ->email = $request->email;
-    $data ->phone = $request->phone;
-
+public function addreservation(Request $request, $id)
+{
     $startDate = $request->startDate;
     $endDate = $request->endDate;
 
+    // Check if a reservation exists for the given event within the specified date range
     $isReservation = Reservation::where('event_id', $id)
-    ->where('start_date', '<=', $endDate)
-    ->where('end_date', '>=', $startDate)->exists();
+        ->where(function ($query) use ($startDate, $endDate) {
+            $query->where('start_date', '<=', $endDate)
+                  ->where('end_date', '>=', $startDate);
+        })
+        ->exists();
 
     if ($isReservation) {
-        return redirect()->back()->with('message', 'Event Already Booked Pleased try different date!');
-    }
-    else{
-        $data ->start_date = $request->startDate;
-        $data ->end_date = $request->endDate;
-        $data->save();
-        return redirect()->back()->with('message', 'Event Booked Succesfully!');
+        return redirect()->back()->with('message', 'Event already booked. Please try a different date!');
     }
 
+    // If no reservation exists, create a new one
+    $reservation = new Reservation();
+    $reservation->event_id = $id;
+    $reservation->name = $request->name;
+    $reservation->email = $request->email;
+    $reservation->phone = $request->phone;
+    $reservation->start_date = $startDate;
+    $reservation->end_date = $endDate;
+    $reservation->save();
 
-
-    $data ->start_date = $request->startDate;
-    $data ->end_date = $request->endDate;
-
+    return redirect()->back()->with('message', 'Event booked successfully!');
 }
+
+
+
 
 public function event_details($id){
     $event = Event::find($id);

@@ -2,12 +2,9 @@
 <html>
 
 <head>
-  <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -15,19 +12,11 @@
 
   <title> Occasion Booker </title>
 
-  <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
   <link href="home/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
   <link href="home/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
   <link href="home/css/responsive.css" rel="stylesheet" />
 
 </head>
@@ -38,7 +27,6 @@
     <div class="bg-box">
       <img src="images/bggg.jpg" alt="">
     </div>
-    <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -63,9 +51,6 @@
                 <a class="nav-link" href="#book">Book</a>
               </li>
               <form class="form-inline">
-                <!-- <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button> -->
               </form>
               @if (Route::has('login'))
               @auth
@@ -88,17 +73,7 @@
         </nav>
       </div>
     </header>
-    <!-- end header section -->
-    <!-- slider section -->
-  
-    <!-- end slider section -->
   </div>
-
-  <!-- offer section -->
-<!--ang pogi ni calvin-->
-  <!-- end offer section -->
-<!--pakyu adriane -->
-  <!-- food section -->
 
   <section class="food_section layout_padding-bottom" id="occasion">
     <div class="container">
@@ -142,14 +117,8 @@
               </div>
               </div>
           </div>
-          @endforeach
-
-          
+          @endforeach       
   </section>
-
-  <!-- end food section -->
-
-  <!-- about section -->
 
   <section class="about_section layout_padding" id="about">
     <div class="container">
@@ -182,9 +151,6 @@
     </div>
   </section>
 
-  <!-- end about section -->
-
-  <!-- book section -->
   <section class="book_section layout_padding" id="book">
     <div class="container">
       <div class="heading_container">
@@ -243,9 +209,6 @@
       </div>
     </div>
   </section>
-  <!-- end book section -->
-
-  <!-- client section -->
 
   <section class="client_section layout_padding-bottom">
     <div class="container">
@@ -297,9 +260,6 @@
     </div>
   </section>
 
-  <!-- end client section -->
-
-  <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
       <div class="row">
@@ -376,28 +336,18 @@
       </div>
     </div>
   </footer>
-  <!-- footer section -->
-
-  <!-- jQery -->
+ 
   <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
-  <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
-  <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
-  <!-- isotope js -->
   <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
   <script src="js/custom.js"></script>
-  <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
-  <!-- End Google Map -->
 
 </body>
 

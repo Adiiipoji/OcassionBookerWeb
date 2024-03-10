@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-/*
+use App\Http\Controllers\ChartController;/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -38,4 +38,8 @@ Route::get('/delete_event/{id}', [AdminController::class, 'delete_event']);
 
 Route::get('/event_details/{id}', [HomeController::class, 'event_details']);
 
-route::post('/addreservation/{id}',[HomeController::class,'addreservation']);
+Route::post('/addreservation/{id}',[HomeController::class,'addreservation']);
+
+Route::get('/show_reservation',[AdminController::class,'show_reservation']);
+
+Route::get('/graph', [ChartController::class, 'user_chart']);

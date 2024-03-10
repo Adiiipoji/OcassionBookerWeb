@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\reservation;
 
 use App\Models\Event;
 
@@ -35,4 +36,10 @@ class AdminController extends Controller
         $event->delete();
         return redirect()->back()->with('message','Event Deleted Successfully');
     }
+
+        public function show_reservation(){
+            $data=reservation::all();
+            return view('admin.show_reservation', compact('data'));
+        }
+
 }

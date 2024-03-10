@@ -1,5 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Style the main panel */
+.main-panel {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Style the content wrapper */
+.content-wrapper {
+    padding: 20px;
+}
+
+/* Center the heading within a div */
+.div_center {
+    text-align: center;
+}
+
+/* Style the heading font size */
+.font_size {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style the list of booked events */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style each booked event item */
+li {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+/* Style the event details */
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+</style>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -112,42 +176,22 @@
                 </li>
           </div>
         </nav>
-
           <div class="main-panel">
           <div class="content-wrapper">
-            @if(session()->has('message'))
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                {{session()->get('message')}}
-                </div>
-                @endif
           <div class="div_center">
-          <h2 class="font_size">All Events</h2>
+          <h2 class="font_size">Booked Events</h2>
             </div>
-          <table class="center">
-            <thead>
-            <tr class="th_color">
-                <th class="th_dg">Event Title</th>
-                <th class="th_dg">Image</th>
-                <th class="th_dg">Description</th>
-                <th class="th_dg">Price</th>
-                <th class="th_dg">Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($event as $event)
-            <tr>
-                <td class="th_dg">{{$event->event_title}}</td>
-                <td class="th_dg">
-                <img class="img_size" src="event_img/{{$event->image}}" alt="">
-                </td>
-                <td class="th_dg">{{$event->description}}</td>
-                <td class="th_dg">{{$event->price}}</td>
-                <td class="th_dg"><a class="btn btn-danger" href="{{url('delete_event', $event->id)}}">Delete</a></td>
-            </tr>
-            @endforeach
-          </tbody>
-          </table>
+            <ul>
+        @foreach($data as $reservation)
+            <li>
+                <h2>{{ $reservation->name }}</h2>
+                <p>Email: {{ $reservation->email }}</p>
+                <p>Phone: {{ $reservation->phone }}</p>
+                <p>Start Date: {{ $reservation->start_date }}</p>
+                <p>End Date: {{ $reservation->end_date }}</p>
+            </li>
+        @endforeach
+    </ul>
         </div>
         </div>
       </div>
