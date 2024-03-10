@@ -35,3 +35,7 @@ Route::get('/create_event', [AdminController::class, 'create_event']);
 Route::get('/show_event', [AdminController::class, 'show_event']);
 
 Route::get('/delete_event/{id}', [AdminController::class, 'delete_event']);
+
+Route::get('/event_details/{id}', [HomeController::class, 'event_details']);
+
+route::post('/addreservation/{id}',[HomeController::class,'addreservation']);

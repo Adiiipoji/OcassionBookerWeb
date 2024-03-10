@@ -36,17 +36,13 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hahahaha.jpg" alt="">
+      <img src="images/bggg.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Occasion Booker
-            </span>
-          </a>
+          <img src="logo/logo1.png" width="250px">
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -58,7 +54,7 @@
                 <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#occasion">Occasion</a>
+                <a class="nav-link" href="#occasion">Event</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
@@ -67,9 +63,9 @@
                 <a class="nav-link" href="#book">Book</a>
               </li>
               <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <!-- <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+                </button> -->
               </form>
               @if (Route::has('login'))
               @auth
@@ -79,10 +75,10 @@
               </li>
               @else
               <li class="nav-item">
-                <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Log In</a>
+                <a class="btn btn-primary" id="logincss" href="{{ route('login') }}" style="background-color: #008000; border-color: #008000">Log In</a>
               </li>
               <li class="nav-item">
-                <a class="btn btn-success" href="{{ route('register') }}">Register</a>
+                <a class="btn btn-success" href="{{ route('register') }} " style="background-color: #008000; border-color: #008000">Register</a>
                 @endauth
                 @endif
               </li>
@@ -99,9 +95,9 @@
   </div>
 
   <!-- offer section -->
-
+<!--ang pogi ni calvin-->
   <!-- end offer section -->
-
+<!--pakyu adriane -->
   <!-- food section -->
 
   <section class="food_section layout_padding-bottom" id="occasion">
@@ -113,18 +109,18 @@
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
+        <!-- <li class="active" data-filter="*">All</li>
         <li data-filter=".burger">Birthday Party</li>
         <li data-filter=".pizza">Wedding</li>
         <li data-filter=".pasta">Christening</li>
-        <li data-filter=".fries">Thanksgiving</li>
+        <li data-filter=".fries">Thanksgiving</li> -->
       </ul>
 
         
         <div class="row">
           @foreach($event as $event)
           <div class="col-sm-6 col-lg-4">
-            <div class="box">
+            <div class="box">  
               <div>
                 <div class="img-box">
                   <img src="event_img/{{$event->image}}" alt="">
@@ -140,6 +136,7 @@
                     <h6>
                       {{$event->price}}
                     </h6>
+                    <a class="btn btn-primary" href="{{url('event_details', $event->id)}}" style="background-color: #008000; border-color: #008000">View</a>
                   </div>
                 </div>
               </div>
@@ -160,7 +157,7 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/gee.png" alt="">
+            <img src="images/logo.png" alt="">
           </div>
         </div>
         <div class="col-md-6">

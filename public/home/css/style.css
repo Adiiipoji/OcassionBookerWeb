@@ -160,7 +160,7 @@ a:focus {
 .navbar-brand span {
   font-weight: bold;
   font-size: 32px;
-  color: #ffffff;
+  color: white;
 }
 
 .custom_nav-container {
@@ -173,7 +173,7 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
   padding: 5px 20px;
-  color: #ffffff;
+  color: white;
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
@@ -182,7 +182,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: #ffbe33;
+  color: green;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -195,7 +195,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn:hover {
-  color: #ffbe33;
+  color: green;
 }
 
 .user_option {
@@ -216,7 +216,7 @@ a:focus {
 }
 
 .user_option .user_link:hover {
-  color: #ffbe33;
+  color: green;
 }
 
 .user_option .cart_link {
@@ -239,13 +239,13 @@ a:focus {
 }
 
 .user_option .cart_link:hover svg {
-  fill: #ffbe33;
+  fill: green;
 }
 
 .user_option .order_online {
   display: inline-block;
   padding: 8px 30px;
-  background-color: #ffbe33;
+  background-color: green;
   color: #ffffff;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
@@ -254,7 +254,7 @@ a:focus {
 }
 
 .user_option .order_online:hover {
-  background-color: #e69c00;
+  background-color: green;
 }
 
 .custom_nav-container .navbar-toggler {
@@ -360,7 +360,7 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #ffbe33;
+  background-color: green;
   color: #ffffff;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
@@ -370,7 +370,7 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: #e69c00;
+  background-color: green;
 }
 
 .slider_section .img-box img {

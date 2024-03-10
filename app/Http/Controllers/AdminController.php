@@ -18,7 +18,7 @@ class AdminController extends Controller
         $event->description=$request->description;
         $event->price=$request->price;
         $event->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Event Added Successfully');
     }
 
     public function create_event()  {
