@@ -16,7 +16,7 @@ body {
 .main-panel {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: green;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -81,15 +81,14 @@ p {
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html">Occasion Booker</a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html">Occasion Booker</a>
+        <img src="logo/logo1.png" width="150px">
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="admin/template/assets/images/faces/adi.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="admin/template/assets/images/faces/logoo.jpg" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">

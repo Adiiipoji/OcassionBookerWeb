@@ -142,9 +142,6 @@
               are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
               the middle of text. All
             </p>
-            <a href="">
-              Read More
-            </a>
           </div>
         </div>
       </div>
@@ -154,58 +151,61 @@
   <section class="book_section layout_padding" id="book">
     <div class="container">
       <div class="heading_container">
-        <h2>
-          Book A Event
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
-              </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
-        </div>
+      <div class="col-md-4">
+
+<h1 style="font-size: 40px !important" >Reserve Event</h1>
+
+<div>
+
+@if(session()->has('message'))
+<div class="alert alert-success" >
+<button type="button" class="close" data-bs-dismiss="alert" ></button>
+{{session()->get('message')}}
+</div>
+@endif
+
+</div>
+@if($errors)
+
+@foreach($errors->all() as $errors)
+
+<li>
+    {{$errors}}
+</li>
+@endforeach
+@endif
+
+<form action="{{url('addreservation', $event->id)}}" method="Post" >
+
+    @csrf
+<div>
+    <label>Name</label>
+    <input type="text" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif >
+</div>
+<div>
+    <label>Email</label>
+    <input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif >
+</div>
+<div>
+    <label>Phone</label>
+    <input type="number" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif>
+</div>
+<div>
+    <label>Start Date</label>
+    <input type="date" name="startDate" id="startDate" >
+</div>
+<div>
+    <label>End Date</label>
+    <input type="date" name="endDate" id="endDate" >
+</div>
+<div style="padding-top: 20px" >
+    <input type="submit" class="btn btn-primary" style="background-color: #008000; border-color: #008000" value="Book Event">
+</div>
+</form>
+</div>
+
+
+</div>
       </div>
     </div>
   </section>
@@ -214,7 +214,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          What Says Our Customers
+          Always here to serve you^^
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -272,19 +272,19 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Arellano Street, Dagupan City, Pangasinan
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call #09632854430
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  occasionbooker@gmail.com
                 </span>
               </a>
             </div>
@@ -298,23 +298,6 @@
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
             </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
@@ -331,7 +314,7 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
+          &copy; <span id="displayYear"></span> All Rights Reserved By Occasion Booker
         </p>
       </div>
     </div>

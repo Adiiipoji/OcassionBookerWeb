@@ -1,5 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: yellow;
+}
+
+/* Style the main panel */
+.main-panel {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: green;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Style the content wrapper */
+.content-wrapper {
+    padding: 20px;
+}
+
+/* Center the heading within a div */
+.div_center {
+    text-align: center;
+}
+
+/* Style the heading font size */
+.font_size {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style the list of booked events */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style each booked event item */
+li {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+/* Style the event details */
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.th_dg{
+  background-color: green;
+}
+</style>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,15 +85,14 @@
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html">Occasion Booker</a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html">Occasion Booker</a>
+        <img src="logo/logo1.png" width="150px">
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="admin/template/assets/images/faces/adi.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="admin/template/assets/images/faces/logoo.jpg" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">

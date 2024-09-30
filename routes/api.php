@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ReservationController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +27,8 @@ Route::post('/users/login', [HomeController::class, 'login']);
 Route::post('/users/reset', [HomeController::class, 'sendPasswordResetLink']);
 Route::post('/users/check-email', [HomeController::class, 'checkEmailAvailability']);
 Route::apiResource('users', HomeController::class);
+Route::apiResource('events', EventController::class);
+Route::apiResource('reservation', ReservationController::class);
+Route::get('/images/{imageName}', [EventController::class, 'getImageByName']);
+
+

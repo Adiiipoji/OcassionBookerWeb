@@ -39,11 +39,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Occasion Booker
-            </span>
-          </a>
+        <img src="logo/logo1.png" width="250px">
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -142,7 +138,7 @@
 
                     @if(session()->has('message'))
                     <div class="alert alert-success" >
-                    <button type="button" class="close" data-bs-dismiss="alert" >X</button>
+                    <button type="button" class="close" data-bs-dismiss="alert" ></button>
                     {{session()->get('message')}}
                     </div>
                     @endif
@@ -182,7 +178,7 @@
                         <input type="date" name="endDate" id="endDate" >
                     </div>
                     <div style="padding-top: 20px" >
-                        <input type="submit" class="btn btn-primary" value="Book Event">
+                        <input type="submit" class="btn btn-primary" style="background-color: #008000; border-color: #008000" value="Book Event">
                     </div>
                     </form>
                 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Event;
+use App\Models\event;
 use App\Models\reservation;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Auth;
