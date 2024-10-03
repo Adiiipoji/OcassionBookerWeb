@@ -1,190 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <base href="/public">
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="" type="">
-
-  <title> Occasion Booker </title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
-  <link href="home/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="home/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="home/css/responsive.css" rel="stylesheet" />
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="home/css/bootstrap.css">
+    <link rel="stylesheet" href="home/css/style.css">
+    <title>Occasion Booker - View Reservation</title>
 </head>
 
 <body>
 
-
-    <!-- header section strats -->
     <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <img src="logo/logo1.png" width="250px">
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}">Home<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">Event</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">Book</a>
-              </li>
-              <form class="form-inline">
-                <!-- <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button> -->
-              </form>
-              @if (Route::has('login'))
-              @auth
-              <li class="nav-item">
-              <x-app-layout>
-              </x-app-layout>
-              </li>
-              @else
-              <li class="nav-item">
-                <a class="btn btn-primary" id="logincss" href="{{ route('login') }}" style="background-color: #008000; border-color: #008000">Log In</a>
-              </li>
-              <li class="nav-item">
-                <a class="btn btn-success" href="{{ route('register') }}" style="background-color: #008000; border-color: #008000">Register</a>
-                @endauth
-                @endif
-              </li>
-            </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <img src="logo/logo1.png" width="250px">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#occasion">Event</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="nav-item"><x-app-layout></x-app-layout></li>
+                            @else
+                                <li class="nav-item"><a class="btn btn-primary" href="{{ route('login') }}">Log In</a></li>
+                                <li class="nav-item"><a class="btn btn-success" href="{{ route('register') }}">Register</a></li>
+                            @endauth
+                        @endif
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
-    <!-- end header section -->
-    <!-- slider section -->
-  
-    <!-- end slider section -->
-  </div>
 
-<section class="food_section layout_padding-bottom" id="occasion">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Event
-        </h2>
-      </div>
-
-      <ul class="filters_menu">
-        <!-- <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Birthday Party</li>
-        <li data-filter=".pizza">Wedding</li>
-        <li data-filter=".pasta">Christening</li>
-        <li data-filter=".fries">Thanksgiving</li> -->
-      </ul>
-
-        <div class="row">
-          <div class="col-sm-6 col-lg-4">
-              <div>
-                <div>
-                  <img src="event_img/{{$event->image}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                  {{$event->event_title}}
-                  </h5>
-                  <p>
-                  {{$event->description}}
-                  </p>
-                  <div class="options">
-                    <h6>
-                      {{$event->price}}
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              </div>
-          </div>
-
-          <div class="col-md-4">
-
-                    <h1 style="font-size: 40px !important" >Reserve Event</h1>
-
-                    <div>
-
-                    @if(session()->has('message'))
-                    <div class="alert alert-success" >
-                    <button type="button" class="close" data-bs-dismiss="alert" ></button>
-                    {{session()->get('message')}}
+    <section class="food_section layout_padding-bottom" id="occasion">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>Our Events</h2>
+            </div>
+            <div class="row">
+                @foreach($events as $event)
+                <div class="col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div>
+                            <div class="img-box">
+                                <img src="event_img/{{$event->image}}" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>{{$event->event_title}}</h5>
+                                <p>{{$event->description}}</p>
+                                <div class="options">
+                                    <h6>{{$event->price}}</h6>
+                                    <a class="btn btn-primary" href="#book" data-event-id="{{$event->id}}" data-event-title="{{$event->event_title}}" style="background-color: #008000; border-color: #008000" onclick="openReservationForm(this)">View</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    @endif
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
-                    </div>
-                    @if($errors)
-
-                    @foreach($errors->all() as $errors)
-
-                    <li>
-                        {{$errors}}
-                    </li>
-                    @endforeach
-                    @endif
-
-                    <form action="{{url('addreservation', $event->id)}}" method="Post" >
-
-                        @csrf
+    <section class="book_section layout_padding" id="book">
+        <div class="container">
+            <div class="heading_container">
+                <h1>Reserve Event</h1>
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+                @endif
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <form id="reservationForm" action="{{ url('addreservation') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="event_id" id="event_id">
                     <div>
                         <label>Name</label>
-                        <input type="text" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif >
+                        <input type="text" name="name" @if(Auth::check()) value="{{ Auth::user()->name }}" @endif>
                     </div>
                     <div>
                         <label>Email</label>
-                        <input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif >
+                        <input type="email" name="email" @if(Auth::check()) value="{{ Auth::user()->email }}" @endif>
                     </div>
                     <div>
                         <label>Phone</label>
-                        <input type="number" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif>
+                        <input type="number" name="phone" @if(Auth::check()) value="{{ Auth::user()->phone }}" @endif>
                     </div>
                     <div>
                         <label>Start Date</label>
-                        <input type="date" name="startDate" id="startDate" >
+                        <input type="date" name="startDate" id="startDate" required>
                     </div>
                     <div>
                         <label>End Date</label>
-                        <input type="date" name="endDate" id="endDate" >
+                        <input type="date" name="endDate" id="endDate" required>
                     </div>
-                    <div style="padding-top: 20px" >
+                    <div style="padding-top: 20px">
                         <input type="submit" class="btn btn-primary" style="background-color: #008000; border-color: #008000" value="Book Event">
                     </div>
-                    </form>
-                </div>
-
-
+                </form>
             </div>
+        </div>
+    </section>
 
-          
-  </section>
+    <footer class="footer_section">
+        <div class="container">
+            <div class="footer-info">
+                <p>&copy; <span id="displayYear"></span> All Rights Reserved By Occasion Booker</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        function openReservationForm(button) {
+            const eventId = button.getAttribute('data-event-id');
+            const eventTitle = button.getAttribute('data-event-title');
+            document.getElementById('event_id').value = eventId;
+            document.getElementById('reservationForm').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+
+</html>

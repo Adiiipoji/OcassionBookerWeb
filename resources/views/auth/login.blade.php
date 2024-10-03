@@ -7,7 +7,7 @@
         <x-validation-errors class="mb-4" />
 
         <div class="text-center mb-4">
-            <h2 class="text-2xl font-semibold text-gray-800">{{__('Occassion Booker')}}</h2>
+            <h2 class="text-2xl font-semibold text-gray-800">{{__('Eventrix')}}</h2>
             <p></p>
         </div>
 

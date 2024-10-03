@@ -28,6 +28,8 @@ Route::middleware([
 
 Route::get('/redirect', [HomeController::class, 'redirect']);
 
+Route::get('/events', [HomeController::class, 'index']);
+
 Route::post('/add_event', [AdminController::class, 'add_event']);
 
 Route::get('/create_event', [AdminController::class, 'create_event']);

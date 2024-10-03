@@ -17,30 +17,27 @@ class HomeController extends Controller
     }
     
     public function redirect(){
-        $usertype=auth::user()->usertype;
+        $usertype = Auth::user()->usertype;
 
-        if($usertype== "1"){
-
+        if ($usertype == "1") {
             return view('admin.home');
+        } else {
+            return $this->home(); 
+        }
     }
 
-    else{
-        $event=event::all();
-        return view('home.userpage', compact('event'));
-}
-}
+    public function home(){
+        $events = Event::all(); 
+        return view('home.userpage', compact('events')); 
+    }
 
-public function home(){
-    $event=event::all();
-    return view('home.userpage',compact('event'));
-}
 
 public function addreservation(Request $request, $id)
 {
     $startDate = $request->startDate;
     $endDate = $request->endDate;
 
-    // Check if a reservation exists for the given event within the specified date range
+    
     $isReservation = Reservation::where('event_id', $id)
         ->where(function ($query) use ($startDate, $endDate) {
             $query->where('start_date', '<=', $endDate)
@@ -52,7 +49,7 @@ public function addreservation(Request $request, $id)
         return redirect()->back()->with('message', 'Event already booked. Please try a different date!');
     }
 
-    // If no reservation exists, create a new one
+    
     $reservation = new Reservation();
     $reservation->event_id = $id;
     $reservation->name = $request->name;
@@ -76,29 +73,28 @@ public function event_details($id){
 public function checkEmailAvailability(Request $request){
     $email = $request->input('email');
 
-    // Check if the email exists in the database
     $user = User::where('email', $email)->first();
 
     if ($user) {
-        // Email already exists, return error response
+        
         return response()->json(['error' => 'Email already registered'], 400);
     }
 
-    // Email is available, return success response
+    
     return response()->json(['message' => 'Email is available']);
     }
     
     public function sendPasswordResetLink(Request $request){
     $request->validate(['email' => 'required|email']);
 
-    // Check if the user with the provided email exists
+    
     $user = User::where('email', $request->email)->first();
 
     if (!$user) {
         return response()->json(['error' => 'User not found'], 404);
     }
 
-    // If the user exists, send the password reset link
+    
     $status = Password::sendResetLink(
         $request->only('email')
     );
@@ -126,13 +122,13 @@ public function checkEmailAvailability(Request $request){
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
-        // Authentication passed...
+        
         $user = Auth::user();
         $token = $user->createToken('API Token')->plainTextToken;
         return response()->json(['user' => $user, 'token' => $token]);
     }
 
-    // Authentication failed...
+    
     return response()->json(['error' => 'Unauthorized'], 401);
     }
 

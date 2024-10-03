@@ -10,7 +10,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="" type="">
 
-  <title> Occasion Booker </title>
+  <title> Eventrix </title>
 
   <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -25,12 +25,12 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/bggg.jpg" alt="">
+      <img src="home/images/ggs.jpg" alt="">
     </div>
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <img src="logo/logo1.png" width="250px">
+          <img src="logo/logo2.png" width="250px">
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -83,44 +83,31 @@
         </h2>
       </div>
 
-      <ul class="filters_menu">
-        <!-- <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Birthday Party</li>
-        <li data-filter=".pizza">Wedding</li>
-        <li data-filter=".pasta">Christening</li>
-        <li data-filter=".fries">Thanksgiving</li> -->
-      </ul>
-
-        
         <div class="row">
-          @foreach($event as $event)
-          <div class="col-sm-6 col-lg-4">
-            <div class="box">  
-              <div>
+    @foreach($events as $event)
+    <div class="col-sm-6 col-lg-4">
+        <div class="box">
+            <div>
                 <div class="img-box">
-                  <img src="event_img/{{$event->image}}" alt="">
+                    <img src="event_img/{{$event->image}}" alt="">
                 </div>
                 <div class="detail-box">
-                  <h5>
-                  {{$event->event_title}}
-                  </h5>
-                  <p>
-                  {{$event->description}}
-                  </p>
-                  <div class="options">
-                    <h6>
-                      {{$event->price}}
-                    </h6>
-                    <a class="btn btn-primary" href="{{url('event_details', $event->id)}}" style="background-color: #008000; border-color: #008000">View</a>
-                  </div>
+                    <h5>{{$event->event_title}}</h5>
+                    <p>{{$event->description}}</p>
+                    <div class="options">
+                        <h6>{{$event->price}}</h6>
+                        <a class="btn btn-primary" href="{{url('event_details', $event->id)}}" style="background-color: #008000; border-color: #008000">View</a>
+                    </div>
                 </div>
-              </div>
-              </div>
-          </div>
-          @endforeach       
-  </section>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+    </div>
+</section>
 
-  <section class="about_section layout_padding" id="about">
+<section class="about_section layout_padding" id="about">
     <div class="container">
 
       <div class="row">
@@ -133,7 +120,7 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Occasion Booker
+                We Are Eventrix
               </h2>
             </div>
             <p>
@@ -148,119 +135,56 @@
     </div>
   </section>
 
-  <section class="book_section layout_padding" id="book">
+
+<section class="book_section layout_padding" id="book">
     <div class="container">
-      <div class="heading_container">
-      <div class="col-md-4">
+        <div class="heading_container">
+            <h1 style="font-size: 40px !important">Reserve Event</h1>
 
-<h1 style="font-size: 40px !important" >Reserve Event</h1>
-
-<div>
-
-@if(session()->has('message'))
-<div class="alert alert-success" >
-<button type="button" class="close" data-bs-dismiss="alert" ></button>
-{{session()->get('message')}}
-</div>
-@endif
-
-</div>
-@if($errors)
-
-@foreach($errors->all() as $errors)
-
-<li>
-    {{$errors}}
-</li>
-@endforeach
-@endif
-
-<form action="{{url('addreservation', $event->id)}}" method="Post" >
-
-    @csrf
-<div>
-    <label>Name</label>
-    <input type="text" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif >
-</div>
-<div>
-    <label>Email</label>
-    <input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif >
-</div>
-<div>
-    <label>Phone</label>
-    <input type="number" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif>
-</div>
-<div>
-    <label>Start Date</label>
-    <input type="date" name="startDate" id="startDate" >
-</div>
-<div>
-    <label>End Date</label>
-    <input type="date" name="endDate" id="endDate" >
-</div>
-<div style="padding-top: 20px" >
-    <input type="submit" class="btn btn-primary" style="background-color: #008000; border-color: #008000" value="Book Event">
-</div>
-</form>
-</div>
-
-
-</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
-          Always here to serve you^^
-        </h2>
-      </div>
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                </p>
-                <h6>
-                  Moana Michell
-                </h6>
-                <p>
-                  magna aliqua
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client1.jpg" alt="" class="box-img">
-              </div>
+            <div>
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+                @endif
             </div>
-          </div>
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                </p>
-                <h6>
-                  Mike Hamell
-                </h6>
-                <p>
-                  magna aliqua
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client2.jpg" alt="" class="box-img">
-              </div>
-            </div>
-          </div>
+            @if($errors)
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            @endif
+
+            <form action="{{url('addreservation')}}" method="POST">
+                @csrf
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif >
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif >
+                </div>
+                <div>
+                    <label>Phone</label>
+                    <input type="number" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif>
+                </div>
+                <div>
+                    <label>Start Date</label>
+                    <input type="date" name="startDate" required>
+                </div>
+                <div>
+                    <label>End Date</label>
+                    <input type="date" name="endDate" required>
+                </div>
+                <div style="padding-top: 20px">
+                    <input type="submit" class="btn btn-primary" style="background-color: #008000; border-color: #008000" value="Book Event">
+                </div>
+            </form>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <footer class="footer_section">
+<footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
@@ -293,7 +217,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Occasion Booker
+              Eventrix
             </a>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
@@ -314,23 +238,15 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By Occasion Booker
+          &copy; <span id="displayYear"></span> All Rights Reserved By Eventrix
         </p>
       </div>
     </div>
   </footer>
- 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 
 </body>
 

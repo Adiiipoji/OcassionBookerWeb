@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Occasion Booker</title>
+    <title>Eventrix</title>
     <style>
         body {
             font-family: Arial, sans-serif;
